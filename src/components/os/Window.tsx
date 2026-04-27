@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useWindowStore, type WindowState } from "@/stores/windowStore";
 import { getApp } from "@/apps/registry";
+import { PlaceholderApp } from "@/apps/placeholder";
 
 const MIN_W = 320;
 const MIN_H = 220;
@@ -156,7 +157,7 @@ export function Window({ win }: { win: WindowState }) {
 
       {/* Body */}
       <div className="relative flex-1 overflow-auto bg-[var(--window-body)]">
-        {Body ? <Body /> : null}
+        {Body ? <Body /> : <PlaceholderApp name={win.title} />}
       </div>
 
       {/* Resize handles */}
