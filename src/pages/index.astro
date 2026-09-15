@@ -5,35 +5,22 @@ import Bio from "@/components/Bio";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Profile from "@/components/Profile";
+import ThemeToggle from "@/components/ThemeToggle";
 ---
 
 <Layout>
-	<!-- min-h-screen -->
-	<div class="flex w-full">
-		<div class="w-[70%] bg-green-300">
-			<Username username="@iliescuandrei3" client:visible/>
-			<Bio content="something about myself" />
-			<Projects />
+	<ThemeToggle client:load />
+	<main class="site-shell">
+		<div class="site-grid">
+			<section class="min-w-0">
+				<Username username="@iliescuandrei3" client:visible />
+				<Bio content="something about myself" />
+				<Projects />
+			</section>
+			<aside class="site-sidebar">
+				<Profile client:load/>
+				<Contact />
+			</aside>
 		</div>
-		<div class="w-[30%] bg-green-500">
-			<Profile />
-			<Contact />
-		</div>
-	</div>
-
-	<!-- <div class="grid grid-flow-col grid-rows-3 gap-4 h-100">
-		<div class="col-span-1 row-span-3 bg-red-200">01</div>
-		<div class="col-span-1 bg-red-300">02</div>
-		<div class="col-span-1 row-span-2 bg-red-400">03</div>
-		<div class="col-span-1 row-span-1 bg-red-400">04</div>
-		<div class="col-span-1 row-span-2 bg-red-400">05</div>
-	</div>
-	<div class="grid grid-cols-2 gap-4">
-		<div class="bg-blue-200">01</div>
-		<div class="bg-blue-200">02</div>
-		<div class="bg-blue-200">03</div>
-		<div class="col-span-2 bg-blue-200">04</div>
-		<div class="bg-blue-200">05</div>
-		<div class="bg-blue-200">06</div>
-	</div> -->
+	</main>
 </Layout>
