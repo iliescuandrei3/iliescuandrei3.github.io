@@ -1,7 +1,27 @@
 @import "tailwindcss";
+@import "./typeset.css";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/geist";
+
+/**********fix later*********/
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/outfit";
+
+:root {
+  --font-inter: 'Inter Variable', sans-serif;
+  --font-outfit: 'Outfit Variable', sans-serif;
+}
+
+.typeset-article {
+  --typeset-font-body: var(--font-inter);
+  --typeset-font-heading: var(--font-outfit);
+  --typeset-font-mono: var(--font-inter);
+  --typeset-size: 16px;
+  --typeset-leading: 1.75;
+  --typeset-flow: 1em;
+}
+/*******************/
 
 @custom-variant dark (&:is(.dark *));
 
