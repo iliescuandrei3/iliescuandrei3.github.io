@@ -1,13 +1,15 @@
 import { Separator } from "./ui/separator";
 
 interface BioProps {
-    content: string;
+  content: string;
 }
 
 export default function Bio({ content }: BioProps) {
-    return <div className="typeset typeset-article">
-        <h2>Bio</h2>
-        <Separator/>
-        <p>{content}</p>
-    </div>
+  return (
+    <section className="section-shell">
+      <h2 className="section-heading">Bio</h2>
+      <Separator />
+      <p className="text-base leading-relaxed text-muted-foreground">{content}</p>
+    </section>
+  )
 }

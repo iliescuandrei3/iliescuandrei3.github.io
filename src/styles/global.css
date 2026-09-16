@@ -60,6 +60,14 @@
     padding-inline-start: clamp(1.25rem, 4vw, 2.5rem);
   }
 
+  .section-shell {
+    @apply flex flex-col gap-3 mt-10
+  }
+
+  .section-heading {
+    @apply font-heading text-2xl font-semibold leading-tight tracking-tight sm:text-3xl;
+  }
+
   .theme-toggle {
     position: fixed;
     top: 1rem;
@@ -123,6 +131,51 @@
     @apply mt-1 w-fit border-brand text-brand hover:bg-brand/10;
   }
 
+  .experience-list {
+    @apply grid gap-5;
+  }
+
+  .experience-card {
+    @apply rounded-xl border border-border/70 bg-card/80 p-5 shadow-sm transition-colors hover:border-brand/40 sm:p-6;
+  }
+
+  .experience-card__topline {
+    @apply flex items-start justify-between gap-6;
+  }
+
+  .experience-card__identity {
+    @apply flex min-w-0 items-center gap-4;
+  }
+
+  .experience-card__mark {
+    @apply flex size-12 shrink-0 items-center justify-center rounded-full border border-border bg-muted text-xl font-bold;
+    overflow: hidden;
+  }
+
+  .experience-card__image {
+    @apply size-full object-cover;
+  }
+
+  .experience-card__role {
+    @apply text-lg font-bold leading-tight tracking-tight sm:text-xl;
+  }
+
+  .experience-card__company {
+    @apply mt-1 text-base font-semibold text-brand;
+  }
+
+  .experience-card__meta {
+    @apply shrink-0 text-right text-sm font-semibold leading-relaxed text-foreground;
+  }
+
+  .experience-card__description {
+    @apply mt-5 max-w-4xl text-sm leading-relaxed text-muted-foreground sm:text-base;
+  }
+
+  .projects-list {
+    @apply grid gap-5
+  }
+
   @media (max-width: 70rem) {
     .site-shell {
       width: min(100% - 1.5rem, 42rem);
@@ -148,6 +201,16 @@
       padding-block-start: 0;
       padding-inline-start: 0;
       text-align: center;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .experience-card__topline {
+      @apply flex-col gap-4;
+    }
+
+    .experience-card__meta {
+      @apply pl-16 text-left;
     }
   }
 }

@@ -3,6 +3,7 @@ import Username from "@/components/Username";
 import Layout from "../layouts/Layout.astro";
 import Bio from "@/components/Bio";
 import Projects from "@/components/Projects";
+import Experience from "@/components/Experience";
 import Contact from "@/components/Contact";
 import Profile from "@/components/Profile";
 import ThemeToggle from "@/components/ThemeToggle";
@@ -15,6 +16,7 @@ import ThemeToggle from "@/components/ThemeToggle";
       <section class="min-w-0">
         <Username username="@iliescuandrei3" client:visible />
         <Bio content="something about myself" />
+        <Experience client:load />
         <Projects client:load />
       </section>
       <aside class="site-sidebar">
