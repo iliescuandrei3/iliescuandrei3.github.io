@@ -1,12 +1,23 @@
+import { ProjectItem } from "./ProjectItem";
 import { Separator } from "./ui/separator";
+import avatarImage from "@/assets/avatar.jpg"
 
 interface ProjectsProps {
 }
 
 export default function Projects({ }: ProjectsProps) {
-    return <div className="typeset typeset-article">
-        <h2>Projects</h2>
-        <Separator/>
-        <p>all the projects</p>
-    </div>
+  return <div>
+    <h2>Projects</h2>
+    <Separator />
+    <ProjectItem
+      name="Humphrey"
+      category="WEB APP"
+      tags={["JAVASCRIPT", "MONGO DB"]}
+      description="some description"
+      source={avatarImage.src}
+      pageUrl="/humphrey"
+      githubUrl="https://github.com/iliescuandrei3"
+      projectUrl="https://github.com/iliescuandrei3"
+    />
+  </div>
 }
