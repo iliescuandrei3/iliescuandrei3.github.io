@@ -1,18 +1,29 @@
 import { ExperienceItem } from "./ExperienceItem";
 import { Separator } from "./ui/separator";
-import eaLogo from "@/assets/ea_logo.png"
-import filedLogo from "@/assets/filed_logo.webp"
-import garminLogo from "@/assets/garmin_logo.png"
+import { type CollectionEntry } from "astro:content";
 
-interface ExperienceProps { }
+interface ExperienceProps {
+  experiences: CollectionEntry<"experience">[];
+}
 
-export default function Experience({ }: ExperienceProps) {
+export default function Experience({ experiences }: ExperienceProps) {
   return (
     <section className="section-shell flex flex-col gap-4">
       <h2 className="section-heading">Experience</h2>
       <Separator />
       <div className="experience-list">
-        <ExperienceItem
+        {experiences.map((experience) => (
+          <ExperienceItem
+            role={experience.data.role}
+            company={experience.data.company}
+            startDate={experience.data.startDate}
+            endDate={experience.data.endDate}
+            location={experience.data.location}
+            logo={experience.data.logo}
+            description={experience.body ?? ""}
+          />
+        ))}
+        {/* <ExperienceItem
           role="Master Thesis Intern"
           company="Electronic Arts"
           dates="January 2026 - June 2026"
@@ -35,7 +46,7 @@ export default function Experience({ }: ExperienceProps) {
           location="Cluj-Napoca, Romania"
           src={garminLogo.src}
           description="Developing internal data tooling and infrastructure for scientists and ML researchers to accelerate genome research and analysis."
-        />
+        /> */}
       </div>
     </section>
   );

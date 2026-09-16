@@ -1,0 +1,32 @@
+---
+import { getCollection, render} from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import ThemeToggle from "@/components/ThemeToggle";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: {
+      slug: project.id,
+    },
+    props: {
+      project,
+    },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<Layout>
+  <ThemeToggle client:load />
+  <main class="site-shell typeset">
+    <h1>{project.data.name}</h1>
+    <p>{project.data.summary}</p>
+    <div class="project-content">
+      <Content />
+    </div>
+  </main>
+</Layout>

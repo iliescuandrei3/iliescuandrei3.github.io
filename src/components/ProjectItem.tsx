@@ -11,8 +11,8 @@ import { LinkIcon } from "./icons/heroicons-link"
 
 interface ProjectItemProps {
   name: string;
-  description: string;
-  source: string;
+  summary: string;
+  image?: string;
   category: string;
   tags: string[];
   pageUrl: string;
@@ -22,8 +22,8 @@ interface ProjectItemProps {
 
 export function ProjectItem({
   name,
-  description,
-  source,
+  summary,
+  image,
   category,
   tags,
   pageUrl,
@@ -33,7 +33,7 @@ export function ProjectItem({
   return (
     <Card className="project-card">
       <img
-        src={source}
+        src={image}
         alt={`${name} project preview`}
         className="aspect-video w-full object-cover"
       />
@@ -71,7 +71,7 @@ export function ProjectItem({
             </Badge>
           ))}
         </div>
-        <p className="project-card__description">{description}</p>
+        <p className="project-card__description">{summary}</p>
         {pageUrl && (
           <a
             href={pageUrl}

@@ -1,26 +1,28 @@
 interface ExperienceItemProps {
   role: string;
   company: string;
-  dates: string;
+  startDate: string;
+  endDate: string;
   location: string;
   description: string;
-  src: string;
+  logo: string;
 }
 
-export function ExperienceItem({
+export async function ExperienceItem({
   role,
   company,
-  dates,
+  startDate,
+  endDate,
   location,
   description,
-  src,
+  logo,
 }: ExperienceItemProps) {
   return (
     <article className="experience-card">
       <div className="experience-card__topline">
         <div className="experience-card__identity">
           <div className="experience-card__mark">
-            <img className="experience-card__image" src={src} alt={`${company} logo`} />
+            <img className="experience-card__image" src={logo} alt={`${company} logo`} />
           </div>
           <div>
             <h3 className="experience-card__role">{role}</h3>
@@ -28,7 +30,7 @@ export function ExperienceItem({
           </div>
         </div>
         <div className="experience-card__meta">
-          <p>{dates}</p>
+          <p>{startDate} - {endDate}</p>
           <p>{location}</p>
         </div>
       </div>

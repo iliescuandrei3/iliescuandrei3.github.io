@@ -1,45 +1,28 @@
+import type { CollectionEntry } from "astro:content";
 import { ProjectItem } from "./ProjectItem";
 import { Separator } from "./ui/separator";
-import avatarImage from "@/assets/avatar.jpg"
 
 interface ProjectsProps {
+  projects: CollectionEntry<"projects">[]
 }
 
-export default function Projects({ }: ProjectsProps) {
+export default function Projects({ projects }: ProjectsProps) {
   return <div className="section-shell">
     <h2 className="section-heading">Projects</h2>
     <Separator />
     <div className="projects-list">
-      <ProjectItem
-        name="Humphrey"
-        category="WEB APP"
-        tags={["JAVASCRIPT", "MONGO DB"]}
-        description="some description"
-        source={avatarImage.src}
-        pageUrl="/humphrey"
-        githubUrl="https://github.com/iliescuandrei3"
-        projectUrl="https://github.com/iliescuandrei3"
-      />
-      <ProjectItem
-        name="Humphrey"
-        category="WEB APP"
-        tags={["JAVASCRIPT", "MONGO DB"]}
-        description="some description"
-        source={avatarImage.src}
-        pageUrl="/humphrey"
-        githubUrl="https://github.com/iliescuandrei3"
-        projectUrl="https://github.com/iliescuandrei3"
-      />
-      <ProjectItem
-        name="Humphrey"
-        category="WEB APP"
-        tags={["JAVASCRIPT", "MONGO DB"]}
-        description="some description"
-        source={avatarImage.src}
-        pageUrl="/humphrey"
-        githubUrl="https://github.com/iliescuandrei3"
-        projectUrl="https://github.com/iliescuandrei3"
-      />
+      {projects.map((project) => (
+        <ProjectItem
+          name={project.data.name}
+          category={project.data.category}
+          tags={project.data.tags}
+          summary={project.data.summary}
+          image={project.data.image}
+          pageUrl={`projects/${project.id}`}
+          githubUrl={project.data.githubUrl}
+          projectUrl={project.data.projectUrl}
+        />
+      ))}
     </div>
   </div>
 }

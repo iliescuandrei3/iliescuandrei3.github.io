@@ -1,7 +1,7 @@
 import { Separator } from "./ui/separator";
 
 interface BioProps {
-  content: string;
+  content?: string;
 }
 
 export default function Bio({ content }: BioProps) {
