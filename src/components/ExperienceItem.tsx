@@ -1,3 +1,5 @@
+import ReactMarkdown from "react-markdown";
+
 interface ExperienceItemProps {
   role: string;
   company: string;
@@ -34,7 +36,9 @@ export async function ExperienceItem({
           <p>{location}</p>
         </div>
       </div>
-      <p className="experience-card__description">{description}</p>
+      <div className="experience-card__description typeset typeset-article">
+        <ReactMarkdown>{description}</ReactMarkdown>
+      </div>
     </article>
   );
 }
