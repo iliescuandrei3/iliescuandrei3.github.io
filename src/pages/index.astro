@@ -30,13 +30,20 @@ const sortedProjects: CollectionEntry<"projects">[] = [...projects].sort(
   <main class="site-shell">
     <div class="intro-grid">
       <section class="intro-copy min-w-0">
-        <Username username={bio?.data.username ?? "@iliescuandrei3"} client:visible />
+        <Username
+          username={bio?.data.username ?? "@iliescuandrei3"}
+          client:visible
+        />
         <Bio content={bio?.body} />
       </section>
       <aside class="site-sidebar">
         <Profile client:load />
         <Contact />
       </aside>
+      <a class="scroll-cue" href="#experience">
+        <span>Scroll to explore</span>
+        <span class="scroll-cue__arrow"></span>
+      </a>
     </div>
     <div class="content-column">
       <Experience experiences={sortedExperience} />

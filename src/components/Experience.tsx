@@ -8,8 +8,8 @@ interface ExperienceProps {
 
 export default function Experience({ experiences }: ExperienceProps) {
   return (
-    <section className="section-shell flex flex-col gap-4">
-      <h2 className="section-heading">Experience</h2>
+    <section id="experience" className="section-shell flex flex-col gap-4 mt-30">
+      <h2 className="section-heading">Work</h2>
       <Separator />
       <div className="experience-list">
         {experiences.map((experience) => (

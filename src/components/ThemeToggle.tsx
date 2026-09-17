@@ -11,6 +11,7 @@ export default function ThemeToggle() {
 
 		setTheme(initialTheme);
 		document.documentElement.classList.toggle('dark', initialTheme === 'dark');
+		document.documentElement.style.colorScheme = initialTheme;
 	}, []);
 
 	const toggleTheme = () => {
@@ -19,6 +20,7 @@ export default function ThemeToggle() {
 		localStorage.setItem('theme', nextTheme);
 		setTheme(nextTheme);
 		document.documentElement.classList.toggle('dark', nextTheme === 'dark');
+		document.documentElement.style.colorScheme = nextTheme;
 	};
 
 	return (

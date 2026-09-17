@@ -4,6 +4,22 @@
 @import "shadcn/tailwind.css";
 @import "./theme.css";
 
+@keyframes typing-cursor-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.typing-cursor {
+  animation: typing-cursor-blink 1s steps(1, end) infinite;
+}
+
 /*****fix later******/
 .typeset-article {
   --typeset-font-body: var(--font-inter);
@@ -55,11 +71,62 @@
     gap: clamp(2.5rem, 7vw, 7rem);
     grid-template-columns: minmax(30rem, 1fr) auto;
     min-height: calc(100svh - 8rem + 2.5rem);
+    position: relative;
+  }
+
+  .scroll-cue {
+    align-items: center;
+    bottom: 0;
+    color: var(--muted-foreground);
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 0.7rem;
+    font-weight: 700;
+    gap: 0.45rem;
+    left: 50%;
+    letter-spacing: 0.14em;
+    position: absolute;
+    text-decoration: none;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    transition: color 180ms ease;
+    white-space: nowrap;
+  }
+
+  .scroll-cue:hover,
+  .scroll-cue:focus-visible {
+    color: var(--brand);
+  }
+
+  .scroll-cue__arrow {
+    border-block-end: 2px solid currentColor;
+    border-inline-end: 2px solid currentColor;
+    height: 0.65rem;
+    transform: rotate(45deg);
+    width: 0.65rem;
+    animation: scroll-cue-bounce 1.2s ease-in-out infinite;
+  }
+
+  @keyframes scroll-cue-bounce {
+    0%,
+    100% {
+      transform: translateY(-0.15rem) rotate(45deg);
+    }
+
+    50% {
+      transform: translateY(0.2rem) rotate(45deg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-cue__arrow {
+      animation: none;
+    }
   }
 
   .content-column {
     margin-inline: auto;
-    max-width: 56rem;
+    max-width: 70rem;
   }
 
   .site-sidebar {
@@ -69,6 +136,10 @@
 
   .section-shell {
     @apply flex flex-col gap-3 mt-10
+  }
+
+  #experience {
+    scroll-margin-top: clamp(1.5rem, 4vw, 3rem);
   }
 
   .section-heading {
@@ -99,11 +170,11 @@
   }
 
   .project-card {
-    @apply mx-auto w-full max-w-xl gap-0 overflow-hidden border border-border/70 bg-card/80 shadow-sm;
+    @apply w-full gap-0 overflow-hidden border border-border/70 bg-card/80 shadow-sm;
   }
 
   .project-card__header {
-    @apply gap-3 p-5 sm:p-6;
+    @apply gap-3;
   }
 
   .project-card__category {
@@ -180,7 +251,8 @@
   }
 
   .projects-list {
-    @apply grid gap-5
+    @apply grid justify-center gap-5;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
   }
 
   @media (max-width: 70rem) {

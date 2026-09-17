@@ -7,7 +7,7 @@ interface ProjectsProps {
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  return <div className="section-shell">
+  return <div className="section-shell my-30">
     <h2 className="section-heading">Projects</h2>
     <Separator />
     <div className="projects-list">

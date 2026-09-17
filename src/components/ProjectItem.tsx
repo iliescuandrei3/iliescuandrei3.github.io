@@ -38,11 +38,13 @@ export function ProjectItem({
         className="aspect-video w-full object-cover"
       />
       <CardHeader className="project-card__header">
-        <p className="project-card__category">
-          {category}
-        </p>
-        <div className="flex items-start justify-between gap-4">
-          <CardTitle className="project-card__title">{name}</CardTitle>
+        <div className="flex items-start justify-between gap-4 mb-1">
+          <div className="flex flex-col gap-2">
+            <p className="project-card__category">
+              {category}
+            </p>
+            <CardTitle className="project-card__title">{name}</CardTitle>
+          </div>
           <div className="project-card__links">
             {githubUrl && (
               <a
