@@ -6,7 +6,7 @@ interface ContactProps {
 }
 
 export default function Contact({ }: ContactProps) {
-    return <div className="flex flex-col items-start gap-1 pt-6">
+    return <div className="flex flex-col items-center gap-1 pt-6">
       <Button
         variant="link"
         size="lg"

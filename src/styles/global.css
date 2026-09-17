@@ -49,10 +49,17 @@
     padding-block: clamp(1.5rem, 5vw, 4rem);
   }
 
-  .site-grid {
+  .intro-grid {
+    align-items: center;
     display: grid;
     gap: clamp(2.5rem, 7vw, 7rem);
     grid-template-columns: minmax(30rem, 1fr) auto;
+    min-height: calc(100svh - 8rem + 2.5rem);
+  }
+
+  .content-column {
+    margin-inline: auto;
+    max-width: 56rem;
   }
 
   .site-sidebar {
@@ -182,17 +189,17 @@
       padding-block: 4.5rem 2rem;
     }
 
-    .site-grid {
+    .intro-grid {
       grid-template-columns: 1fr;
       gap: 2.5rem;
+      min-height: calc(100svh - 6.5rem + 2.5rem);
     }
 
-    .site-grid>section {
-      display: contents;
+    .intro-copy {
+      padding-block-start: 2rem;
     }
 
     .site-sidebar {
-      grid-row: 2;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -201,6 +208,10 @@
       padding-block-start: 0;
       padding-inline-start: 0;
       text-align: center;
+    }
+
+    .content-column {
+      max-width: none;
     }
   }
 

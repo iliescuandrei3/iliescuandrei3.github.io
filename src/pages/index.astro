@@ -28,17 +28,19 @@ const sortedProjects: CollectionEntry<"projects">[] = [...projects].sort(
 <Layout>
   <ThemeToggle client:load />
   <main class="site-shell">
-    <div class="site-grid">
-      <section class="min-w-0">
+    <div class="intro-grid">
+      <section class="intro-copy min-w-0">
         <Username username={bio?.data.username ?? "@iliescuandrei3"} client:visible />
         <Bio content={bio?.body} />
-        <Experience experiences={sortedExperience} />
-        <Projects projects={sortedProjects} />
       </section>
       <aside class="site-sidebar">
         <Profile client:load />
         <Contact />
       </aside>
+    </div>
+    <div class="content-column">
+      <Experience experiences={sortedExperience} />
+      <Projects projects={sortedProjects} />
     </div>
   </main>
 </Layout>
