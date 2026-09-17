@@ -7,7 +7,7 @@ interface ProjectsProps {
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  return <div className="section-shell my-30">
+  return <section className="section-shell">
     <h2 className="section-heading">Projects</h2>
     <Separator />
     <div className="projects-list">
@@ -24,5 +24,5 @@ export default function Projects({ projects }: ProjectsProps) {
         />
       ))}
     </div>
-  </div>
+  </section>
 }

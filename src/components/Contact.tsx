@@ -6,10 +6,11 @@ interface ContactProps {
 }
 
 export default function Contact({ }: ContactProps) {
-    return <div className="flex flex-col items-center gap-1 pt-6">
+    return <div className="profile-contact">
       <Button
         variant="link"
         size="lg"
+        className="external-action external-action--text"
         render={
           <a
             href="https://github.com/iliescuandrei3"
@@ -24,6 +25,7 @@ export default function Contact({ }: ContactProps) {
 
       <Button
         variant="link"
+        className="external-action external-action--text"
         render={
           <a
             href="https://www.linkedin.com/in/andrei-iliescu-a76558223/"
@@ -36,7 +38,7 @@ export default function Contact({ }: ContactProps) {
         LinkedIn
       </Button>
         {/* TODO */}
-      <Button variant="link" render={<a href="mailto:you@example.com" />}>
+      <Button variant="link" className="external-action external-action--text" render={<a href="mailto:you@example.com" />}>
         <MailIcon/>
         Email
       </Button>

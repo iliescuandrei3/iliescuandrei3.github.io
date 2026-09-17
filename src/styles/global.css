@@ -22,11 +22,8 @@
 
 /*****fix later******/
 .typeset-article {
-  --typeset-font-body: var(--font-inter);
-  --typeset-font-heading: var(--font-outfit);
-  --typeset-font-mono: var(--font-inter);
-  --typeset-size: 16px;
-  --typeset-leading: 1.75;
+  --typeset-size: 0.95rem;
+  --typeset-leading: 1.65;
   --typeset-flow: 1em;
 }
 
@@ -44,6 +41,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
     min-width: 320px;
   }
 
@@ -60,7 +58,7 @@
 
 @layer components {
   .site-shell {
-    width: min(100% - 10rem, 75rem);
+    width: min(100% - 3rem, 76rem);
     margin-inline: auto;
     padding-block: clamp(1.5rem, 5vw, 4rem);
   }
@@ -68,8 +66,8 @@
   .intro-grid {
     align-items: center;
     display: grid;
-    gap: clamp(2.5rem, 7vw, 7rem);
-    grid-template-columns: minmax(30rem, 1fr) auto;
+    gap: clamp(3rem, 8vw, 8rem);
+    grid-template-columns: minmax(0, 1fr) minmax(12rem, 18rem);
     min-height: calc(100svh - 8rem + 2.5rem);
     position: relative;
   }
@@ -130,12 +128,32 @@
   }
 
   .site-sidebar {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
     border-inline-start: 1px solid var(--border);
-    padding-inline-start: clamp(1.25rem, 4vw, 2.5rem);
+    padding-inline-start: clamp(1.5rem, 4vw, 3rem);
+  }
+
+  .profile-contact {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-block-start: 1.5rem;
+    width: 10rem;
   }
 
   .section-shell {
-    @apply flex flex-col gap-3 mt-10
+    @apply flex flex-col gap-4 mt-24;
+  }
+
+  .intro-bio {
+    margin-block-start: clamp(2rem, 5vw, 4rem);
+  }
+
+  .username-heading {
+    font-family: var(--font-username);
   }
 
   #experience {
@@ -143,7 +161,8 @@
   }
 
   .section-heading {
-    @apply font-heading text-2xl font-semibold leading-tight tracking-tight sm:text-3xl;
+    @apply font-heading text-3xl font-semibold leading-none tracking-tight sm:text-4xl;
+    text-wrap: balance;
   }
 
   .theme-toggle {
@@ -157,7 +176,7 @@
     min-width: 2.75rem;
     min-height: 2.75rem;
     border: 1px solid var(--border);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-control);
     background: color-mix(in oklab, var(--background) 88%, transparent);
     color: var(--foreground);
     box-shadow: 0 0.5rem 1.5rem color-mix(in oklab, var(--foreground) 8%, transparent);
@@ -169,8 +188,16 @@
     background: var(--accent);
   }
 
+  .external-action {
+    @apply inline-flex items-center gap-2 rounded-md text-brand transition-colors hover:bg-brand/10 hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+  }
+
+  .external-action--text {
+    @apply px-3 py-2;
+  }
+
   .project-card {
-    @apply w-full gap-0 overflow-hidden border border-border/70 bg-card/80 shadow-sm;
+    @apply w-full gap-0 overflow-hidden border border-border bg-card shadow-sm transition-shadow duration-200 hover:shadow-md;
   }
 
   .project-card__header {
@@ -186,7 +213,7 @@
   }
 
   .project-card__icon-link {
-    @apply inline-flex size-9 shrink-0 items-center justify-center rounded-md border border-brand text-brand transition-colors hover:bg-brand/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring;
+    @apply size-9 shrink-0 justify-center border border-brand p-0;
   }
 
   .project-card__title {
@@ -214,7 +241,7 @@
   }
 
   .experience-card {
-    @apply rounded-xl border border-border/70 bg-card/80 p-5 shadow-sm transition-colors hover:border-brand/40 sm:p-6;
+    @apply rounded-lg border border-border bg-card p-5 shadow-sm transition-shadow duration-200 hover:shadow-md sm:p-6;
   }
 
   .experience-card__topline {
@@ -257,7 +284,7 @@
 
   @media (max-width: 70rem) {
     .site-shell {
-      width: min(100% - 1.5rem, 42rem);
+      width: min(100% - 3rem, 52rem);
       padding-block: 4.5rem 2rem;
     }
 
@@ -272,14 +299,13 @@
     }
 
     .site-sidebar {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       border-inline-start: 0;
       border-block: 0;
       padding-block-start: 0;
       padding-inline-start: 0;
       text-align: center;
+      width: min(100%, 22rem);
+      margin-inline: auto;
     }
 
     .content-column {
@@ -288,12 +314,16 @@
   }
 
   @media (max-width: 40rem) {
+    .site-shell {
+      width: min(100% - 1.5rem, 40rem);
+    }
+
     .experience-card__topline {
       @apply flex-col gap-4;
     }
 
     .experience-card__meta {
-      @apply pl-16 text-left;
+      @apply pl-0 text-left;
     }
   }
 }

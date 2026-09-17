@@ -8,7 +8,7 @@ interface ExperienceProps {
 
 export default function Experience({ experiences }: ExperienceProps) {
   return (
-    <section id="experience" className="section-shell flex flex-col gap-4 mt-30">
+    <section id="experience" className="section-shell">
       <h2 className="section-heading">Work</h2>
       <Separator />
       <div className="experience-list">

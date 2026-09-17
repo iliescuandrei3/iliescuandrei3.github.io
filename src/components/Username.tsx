@@ -36,8 +36,9 @@ export default function Username({ username }: UsernameProps) {
   }, [username, typingRun]);
 
   return (
-    <div className="typeset typeset-article text-4xl pb-15">
+    <div className="typeset typeset-article text-4xl pb-4">
       <h1
+        className="username-heading"
         onMouseEnter={() => {
           setVisibleCharacters(0);
           setTypingRun((current) => current + 1);

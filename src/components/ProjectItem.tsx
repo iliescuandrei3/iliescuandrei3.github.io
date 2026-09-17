@@ -50,7 +50,7 @@ export function ProjectItem({
               <a
                 href={githubUrl}
                 target="_blank"
-                className="project-card__icon-link"
+                className="external-action project-card__icon-link"
               >
                 <GithubIcon size={18} />
               </a>
@@ -59,7 +59,7 @@ export function ProjectItem({
               <a
                 href={projectUrl}
                 target="_blank"
-                className="project-card__icon-link"
+                className="external-action project-card__icon-link"
               >
                 <LinkIcon size={18} />
               </a>
