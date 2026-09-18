@@ -1,5 +1,5 @@
 ---
-import { getCollection, render} from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import ThemeToggle from "@/components/ThemeToggle";
 
@@ -23,6 +23,11 @@ const { Content } = await render(project);
 <Layout>
   <ThemeToggle client:load />
   <main class="site-shell typeset">
+    <nav aria-label="Project navigation" class="mb-8">
+      <a href="/" class="external-action external-action--text -ml-3">
+        Back to home
+      </a>
+    </nav>
     <h1>{project.data.name}</h1>
     <p>{project.data.summary}</p>
     <div class="project-content">
