@@ -13,6 +13,7 @@ export default function Projects({ projects }: ProjectsProps) {
     <div className="projects-list">
       {projects.map((project) => (
         <ProjectItem
+          key={project.id}
           name={project.data.name}
           category={project.data.category}
           tags={project.data.tags}

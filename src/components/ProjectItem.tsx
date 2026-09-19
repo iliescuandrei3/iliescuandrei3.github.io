@@ -39,7 +39,7 @@ export function ProjectItem({
       />
       <CardHeader className="project-card__header">
         <div className="flex items-start justify-between gap-4 mb-1">
-          <div className="flex flex-col gap-2">
+          <div className="min-w-0 flex flex-col gap-2">
             <p className="project-card__category">
               {category}
             </p>

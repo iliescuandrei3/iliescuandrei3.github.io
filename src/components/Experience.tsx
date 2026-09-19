@@ -14,6 +14,7 @@ export default function Experience({ experiences }: ExperienceProps) {
       <div className="experience-list">
         {experiences.map((experience) => (
           <ExperienceItem
+            key={experience.id}
             role={experience.data.role}
             company={experience.data.company}
             startDate={experience.data.startDate}

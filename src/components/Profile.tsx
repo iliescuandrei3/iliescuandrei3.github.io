@@ -10,7 +10,7 @@ interface ProfileProps {
 
 export default function Profile({ }: ProfileProps) {
   return (
-    <Avatar className="size-65 border-4">
+    <Avatar className="size-[clamp(12rem,28vw,16.25rem)] border-4">
       <AvatarImage src={avatarImage.src} alt="Andrei Iliescu" />
       <AvatarFallback>AI</AvatarFallback>
     </Avatar>
