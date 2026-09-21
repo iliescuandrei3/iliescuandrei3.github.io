@@ -1,4 +1,7 @@
 ---
+import interFont from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import outfitFont from "@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2?url";
+import jetBrainsMonoFont from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
 import "../styles/global.css";
 ---
 
@@ -7,6 +10,9 @@ import "../styles/global.css";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
+    <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={outfitFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={jetBrainsMonoFont} as="font" type="font/woff2" crossorigin />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
