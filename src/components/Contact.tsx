@@ -38,7 +38,7 @@ export default function Contact({ }: ContactProps) {
         LinkedIn
       </Button>
         {/* TODO */}
-      <Button variant="link" className="external-action external-action--text" render={<a href="mailto:you@example.com" />}>
+      <Button variant="link" className="external-action external-action--text" render={<a href="mailto:contact@iliescuandrei.com" />}>
         <MailIcon/>
         Email
       </Button>
